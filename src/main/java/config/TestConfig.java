@@ -5,9 +5,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
 import io.restassured.RestAssured;
-
 import static constans.Constants.RunVariable.path;
 import static constans.Constants.RunVariable.server;
+import static constans.Constants.Servers.SWAPI_URL;
+
 
 public class TestConfig {
 
@@ -23,6 +24,18 @@ public class TestConfig {
             .addCookie("myCookie","testJSON ")
             .build();
 
+    //SWAPI
+    public RequestSpecification requestSpecificationSWAPI =  new RequestSpecBuilder()
+            .setBaseUri(SWAPI_URL)
+            .addHeader("Content-Type","application/xml")
+            .addCookie("myCookie","testXML ")
+            .build();
+
+
+
+
+
+    //---------------------------------------------***----------------------------------------------------------------//
     //ResponseSpecification - общие свойства(спецификации) для ответа
     public ResponseSpecification responseSpecificationGET = new ResponseSpecBuilder()
             .expectStatusCode(200)

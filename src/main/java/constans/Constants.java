@@ -7,7 +7,7 @@ public class Constants {
 
     //настройки для тестируемого сервиса
     public static class RunVariable{
-         public static String server = JSON_PLACEHOLDER_URL;
+         public static String server = SWAPI_URL;
          public static String path = "";
     }
 
