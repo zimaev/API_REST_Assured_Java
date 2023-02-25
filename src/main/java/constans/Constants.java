@@ -26,11 +26,13 @@ public class Constants {
     //Эндпоинты
     public static class Actions{
 
-        //WAPI
+        //SWAPI
         public static String GET_PEOPLE = "people/";
 
         //JSON_PLACEHOLDER
         public static String GET_COMMENTS = "comments/";
+        public static String PUT_POST = "/posts/1";
+        public static String DELETE_POST = "/posts/1";
 
     }
 }

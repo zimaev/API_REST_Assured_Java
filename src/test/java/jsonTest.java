@@ -1,7 +1,7 @@
 import config.TestConfig;
 import org.testng.annotations.Test;
 
-import static constans.Constants.Actions.GET_COMMENTS;
+import static constans.Constants.Actions.*;
 import static io.restassured.RestAssured.*;
 
 public class jsonTest extends TestConfig {
@@ -16,7 +16,37 @@ public class jsonTest extends TestConfig {
         then().
                 log().body().
                  statusCode(200);
+    }
 
+    @Test
+    public void testPUT() {
 
+        String bodyJSON = "{\n" +
+                "    \"id\": 1,\n" +
+                "    \"title\": \"foo\",\n" +
+                "    \"body\": \"bar\",\n" +
+                "    \"userId\": 1\n" +
+                "}";
+
+        given().
+                body(bodyJSON)
+                .log()
+                .uri().
+        when().
+                put(PUT_POST).
+        then().
+                log().all()
+                .statusCode(200);
+    }
+
+    @Test
+    public void testDelete() {
+        given().
+                log().uri()
+        .when()
+                .delete(DELETE_POST)
+        .then()
+                .log().body()
+                .statusCode(200);
     }
 }
