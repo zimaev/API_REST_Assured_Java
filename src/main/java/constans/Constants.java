@@ -1,6 +1,7 @@
 package constans;
 
-import static constans.Constants.Servers.JSON_PLACEHOLDER_URL;
+import static constans.Constants.Servers.*;
+
 
 public class Constants {
 
@@ -14,6 +15,7 @@ public class Constants {
     public static class Servers{
         public static String SWAPI_URL = "https://swapi.dev/";
         public static String JSON_PLACEHOLDER_URL = "https://jsonplaceholder.typicode.com/";
+        public static String REQUESTBIN = "https://eo4ac24z0gd192h.m.pipedream.net/";
         public static String GOOGLE_PLACES_URL;
     }
 
@@ -33,6 +35,7 @@ public class Constants {
         public static String GET_COMMENTS = "comments/";
         public static String PUT_POST = "/posts/1";
         public static String DELETE_POST = "/posts/1";
+        public static String POSTS = "/posts";
 
     }
 }

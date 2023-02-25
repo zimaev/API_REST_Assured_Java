@@ -1,4 +1,5 @@
 import config.TestConfig;
+import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
 import static constans.Constants.Actions.*;
@@ -49,4 +50,47 @@ public class jsonTest extends TestConfig {
                 .log().body()
                 .statusCode(200);
     }
+
+
+    @Test
+    public void testPOSTJson() {
+
+        String bodyJSON = "{\n" +
+                "    \"title\": \"foo\",\n" +
+                "    \"body\": \"bar\",\n" +
+                "    \"userId\": 1\n" +
+                "}";
+
+        given()
+                .body(bodyJSON)
+                .log().all()
+        .when()
+                .post(POSTS)
+        .then()
+                .log().body()
+                .statusCode(201);
+    }
+
+
+    @Test
+    public void testXML() {
+        String xmlBody = "<note>\n" +
+                "<to>Tove</to>\n" +
+                "<from>Jani</from>\n" +
+                "<heading>Reminder</heading>\n" +
+                "<body>Don't forget me this weekend!</body>\n" +
+                "</note>";
+
+        given()
+                .spec(requestSpecificationXML)
+                .body(xmlBody)
+
+                .log().all()
+        .when()
+                .post("")
+        .then()
+                .log().body()
+                .statusCode(200);
+    }
+
 }
