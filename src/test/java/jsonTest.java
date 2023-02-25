@@ -15,8 +15,8 @@ public class jsonTest extends TestConfig {
         when().
                 get(GET_COMMENTS).
         then().
-                log().body().
-                 statusCode(200);
+                spec(responseSpecificationGET)
+                .log().body();
     }
 
     @Test
@@ -67,8 +67,8 @@ public class jsonTest extends TestConfig {
         .when()
                 .post(POSTS)
         .then()
-                .log().body()
-                .statusCode(201);
+                .spec(responseSpecificationPOST)
+                .log().body();
     }
 
 
@@ -89,8 +89,9 @@ public class jsonTest extends TestConfig {
         .when()
                 .post("")
         .then()
-                .log().body()
-                .statusCode(200);
+                .spec(responseSpecificationGET)
+                .log().body();
+
     }
 
 }
