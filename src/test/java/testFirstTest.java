@@ -8,6 +8,7 @@ import java.util.Map;
 import static constans.Constants.Actions.GET_PEOPLE;
 import static constans.Constants.Path.SWAPI_PATH;
 import static io.restassured.RestAssured.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
 
@@ -86,5 +87,17 @@ public class testFirstTest extends TestConfig {
 
         Headers responseHeaders = response.getHeaders();
         System.out.println(responseHeaders);
+    }
+
+    @Test
+    public void testValidateJSONSchema() {
+        given()
+                .when()
+                .log().uri()
+                .get(SWAPI_PATH+GET_PEOPLE)
+                .then()
+                    .body(matchesJsonSchemaInClasspath("jsonSchema.json"))
+                    .log().body();
+
     }
 }
