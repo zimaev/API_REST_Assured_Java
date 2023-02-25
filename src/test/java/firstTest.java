@@ -11,7 +11,7 @@ public class firstTest extends TestConfig {
     void restTest(){
         given().log().uri().
         when().get(GET_PEOPLE+"1").
-        then().log().body().
+        then().log().all().
         statusCode(200);
     }
 
