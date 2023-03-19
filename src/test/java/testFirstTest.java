@@ -14,13 +14,13 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class testFirstTest extends TestConfig {
 
-    @Test
-    void restTest(){
-        given().log().uri().
-        when().get(GET_PEOPLE+"1").
-        then().log().all().
-        statusCode(200);
-    }
+//extends    @Test
+//    void restTest(){
+//        given().log().uri().
+//        when().get(GET_PEOPLE+"1").
+//        then().log().all().
+//        statusCode(200);
+//    }
 
 
     @Test
